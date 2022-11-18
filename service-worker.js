@@ -6,9 +6,17 @@ var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [
   '/habit-breaker/',
   '/habit-breaker/index.html',
-  '/habit-breaker/js/',
-  '/habit-breaker/css/',
-  '/habit-breaker/img/',
+  '/habit-breaker/js/cache.js',
+  '/habit-breaker/js/classifier.js',
+  '/habit-breaker/js/input.js',
+  '/habit-breaker/js/notification.js',
+  '/habit-breaker/js/pwa.js',
+  '/habit-breaker/css/style.css',
+  '/habit-breaker/img/favicon.ico',
+  '/habit-breaker/img/logo-192.png',
+  '/habit-breaker/img/logo-512.png',
+  '/habit-breaker/img/model-flow.png',
+  '/habit-breaker/img/pwa-icon.png',
 ]
 
 // Respond with cached resources
