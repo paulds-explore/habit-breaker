@@ -48,7 +48,7 @@ function notify(message) {
                 const notification = new Notification("Habit Breaker",
                     {
                         body: message,
-                        icon: './img/logo-512.png',
+                        icon: 'img/logo-512.png',
                         requireInteraction: true,
                         vibrate: true,
                         silent: false,
