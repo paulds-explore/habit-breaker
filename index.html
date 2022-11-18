@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Habit Breaker</title>
+    <meta name="habit-breaker" content="#aa7700">
+    <meta name="theme-color" content="black">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="parent">
+        <h1>Habit Breaker</h1>
+        <p><b>Kick bad habits using AI!</b></p>
+        <p>This tool is for you if you want to mindfully stop doing pretty much any physical subconscious behaviour
+            that can be captured with your webcam like slouching in your chair or biting your fingernails.</p>
+        <p>Train your personalized model in minutes - no prior knowledge of machine learning or coding necessary!
+        </p>
+        <p>In order to receive notifications in the background, click the <img class="pwaIcon"
+                src="/img/pwa-icon.png" /> in the address bar to install this as an app on your system & keep the app
+            window maximized - minimizing it will pause the model.</p>
+        <button type="button" class="collapsible">Instructions for preparing your own model</button>
+        <div class="content">
+            <p>Go to the <a href=https://teachablemachine.withgoogle.com/train/image target="_blank"><b>Teachable
+                        Machine</b></a> and follow the steps in the diagram below.</p>
+            <p>Train positive/neutral behaviours as well as the behaviours you want to be notified about as separate
+                classes. You will need at least two. Start with a few images, train the model and use the preview
+                window to iteratively add new images to address edge cases. To make your model more robust, collect
+                images from different angles by adjusting your camera position and consider gathering images with
+                different backgrounds if you work in multiple environments.
+            </p>
+            <img class="modelFlow" src="img/model-flow.png" />
+            <p><b>For best results, it's advised you train your own model! The default model likely won't generalize
+                    very well to your environment and physical features as it's only been trained on 1 person in 1
+                    environment.</b></p>
+        </div>
+    </div>
+    <div class="reloadModel">
+        <input type="text" id="modelUrl" name="model_url"
+            value="https://teachablemachine.withgoogle.com/models/JYRlRlLvx/"></input>
+        <button type="loadModelButton" onclick="loadNewModel()">Load Model</button>
+    </div>
+    <div class="modelParent">
+        <div id="camera"></div>
+        <div>
+            <div id="labels">
+            </div>
+            <div>
+            </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
+<script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+<script src="/js/pwa.js"></script>
+<script src="/js/cache.js"></script>
+<script src="/js/classifier.js"></script>
+<script src="/js/input.js"></script>
+<script src="/js/notification.js"></script>
+<script type="text/javascript">
+
+    // fetch previous model from the cache, see setLabels for loading of notification params & input.js for storing
+    previousModel = getSavedValue("modelUrl");
+
+    if (previousModel !== '') {
+        document.getElementById("modelUrl").value = previousModel;
+    }
+
+    // handle expanding and collapsing the instructions
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+</script>
+
+</html>

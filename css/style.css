@@ -1,0 +1,135 @@
+html,
+body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    width: 50em;
+    text-align: center;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.modelParent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.reloadModel {
+    display: flex;
+    flex-flow: row;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.labelAndOption {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-flow: row;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.label {
+    width: 8em;
+    text-align: right;
+    margin: 5px 10px 5px 0px;
+}
+
+.labelOption {
+    width: 8em;
+    margin: 0px 10px 5px 0px;
+}
+
+.slider {
+    width: 5em;
+    margin: 0px 10px 5px 0px;
+    background: red;
+}
+
+.slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+.sliderValue {
+    width: 1em;
+    margin: 5px 0px 0px 0px;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+.modelFlow {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+
+button {
+    background-color: #d92d27;
+    border-color: #d92d27;
+}
+
+select:focus {
+    border-color: #d92d27;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d92d27" d="M0,0l6,8l6-8"/></svg>') center right no-repeat;
+}
+
+a {
+    color: #d92d27;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 16em;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.pwaIcon {
+    max-height: 1em;
+}
