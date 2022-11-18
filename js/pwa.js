@@ -1,7 +1,7 @@
 //PWA
 if ("serviceWorker" in navigator) {
     // register service worker
-    navigator.serviceWorker.register("service-worker.js");
+    navigator.serviceWorker.register("/habit-breaker/service-worker.js", { scope: '/habit-breaker/' });
 }
 window.addEventListener('load', () => {
     registerSW();
